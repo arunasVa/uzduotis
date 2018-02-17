@@ -1,0 +1,42 @@
+
+<div class="col-md-7">
+    <h3 *ngIf="pickedProducts.length == 0">Krepšelis tuščias! Prašome pasirinkti produktą</h3>
+    <table class="table table-hover" *ngIf="pickedProducts.length !== 0">
+    <thead>
+        <tr>
+            <td>Nr.</td>
+            <td>Prekės pavadinimas</td>
+            <td>Svoris gramais</td>
+            <td>Kaina eur</td>
+            <td></td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of pickedProducts"> 
+            <td>{{ product.id }}</td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.weight }}</td>
+            <td>{{ product.price }}</td>
+            <td><button class="btn" (click)="removeFromShopCart(product)">Pašalinti iš krepšelio</button></td>
+        </tr>
+    </tbody>
+  </table>
+  <button class="button" *ngIf="pickedProducts.length !== 0" (click)="makeOrderList()">Užsakyti</button>
+  <hr>
+  <h3>Užsakymų sąrašas</h3>
+  <table class="table table-hover" *ngIf="orderList.length !== 0">
+    <thead>
+        <tr>
+            <td></td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr > 
+            <td>
+                <ul><li *ngFor="let product of orderList">{{ product.name }} {{ product.price }} Eur</li></ul>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+</div>
