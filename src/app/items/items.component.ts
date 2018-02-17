@@ -10,6 +10,10 @@ import { SearchPipe } from '../search.pipe'
 })
 
 export class ItemsComponent implements OnInit {
+  
+  public productName: String;
+  public page: Number;
+  
   itemsArr: Item[] = []
 
   collection = []
