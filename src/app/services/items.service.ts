@@ -50,7 +50,6 @@ export class ItemsService {
         {id: 21, name: 'Batonas', weight: '350g', price: 0.9},
     ];
     
-
     private shopCart: Item [] = [];
 
     getItemsArr() {

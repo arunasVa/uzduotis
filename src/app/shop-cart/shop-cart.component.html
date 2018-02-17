@@ -1,6 +1,6 @@
 
-<div class="col-md-7">
-    <h3 *ngIf="pickedProducts.length == 0">Krepšelis tuščias! Prašome pasirinkti produktą</h3>
+<div class="col-md-9">
+    <h4 *ngIf="pickedProducts.length == 0">Krepšelis tuščias! Prašome pasirinkti produktą</h4>
     <table class="table table-hover" *ngIf="pickedProducts.length !== 0">
     <thead>
         <tr>
@@ -23,20 +23,21 @@
   </table>
   <button class="button" *ngIf="pickedProducts.length !== 0" (click)="makeOrderList()">Užsakyti</button>
   <hr>
-  <h3>Užsakymų sąrašas</h3>
+  <h4>Užsakymų sąrašas</h4>
   <table class="table table-hover" *ngIf="orderList.length !== 0">
     <thead>
         <tr>
             <td></td>
+            <td></td>
         </tr>
     </thead>
     <tbody>
-        <tr > 
+        <tr *ngFor="let count of orderList"> 
+            <td>{{ date }}</td>
             <td>
-                <ul><li *ngFor="let product of orderList">{{ product.name }} {{ product.price }} Eur</li></ul>
+                <ul><li *ngFor="let product of count">{{ product.name }} {{ product.price }} Eur</li></ul>
             </td>
         </tr>
     </tbody>
   </table>
-
 </div>
