@@ -11,9 +11,11 @@ import { SearchPipe } from './search.pipe';
 import { FormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { OrderList } from './services/orderList.service';
+import { SearchOrderPipe } from './searchOrder.pipe';
 
 @NgModule({
   declarations: [
+    SearchOrderPipe,
     SearchPipe,
     AppComponent,
     ItemsComponent,

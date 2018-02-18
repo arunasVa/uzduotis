@@ -2,6 +2,9 @@
 .orderList {
   margin-top: 5%;
 }
+.shopingCart {
+  min-height: 15vh;
+}
 /*buttons*/
 .productButton, .orderButton {
   color: #fff;
@@ -47,7 +50,7 @@ min-height: 8%;
   background-image: url('./assets/img/baked_breads.png');
   width: 100%;
   height: 100%;
-  opacity : 0.3;
+  opacity : 0.15;
   z-index: -1;
   border-radius: 20px;
 }

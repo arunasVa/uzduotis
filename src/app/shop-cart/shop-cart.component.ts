@@ -4,6 +4,7 @@ import { Item } from '../services/items.model';
 import { ItemsService } from '../services/items.service';
 import { OrderList } from '../services/orderList.service';
 import { Order } from '../services/orderList.model';
+import { SearchOrderPipe } from '../searchOrder.pipe'
 
 @Component({
   selector: 'app-shop-cart',
@@ -20,7 +21,6 @@ export class ShopCartComponent implements OnInit {
   removeFromShopCart(product: Item) {
     this.itemsService.removeFromShopCart(product);
   }
-
   //sudarome užsakymą ir išvalome krepšelį
   makeOrderList() {
     var counter = 0;

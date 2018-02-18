@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="m-md-auto col-md-10">
+  <div class="m-md-auto col-md-10 shopingCart">
     <h4 *ngIf="pickedProducts.length == 0">Krepšelis tuščias! Prašome pasirinkti produktą</h4>
     <table class="table table-hover" *ngIf="pickedProducts.length !== 0">
       <thead>
@@ -23,7 +23,6 @@
         </tr>
       </tbody>
     </table>
-
     <button class="button orderButton" *ngIf="pickedProducts.length !== 0" (click)="makeOrderList()">Užsakyti</button>
   </div>
 </div>
@@ -31,23 +30,27 @@
 <div class="row orderList">
   <div class="m-md-auto col-md-10">
     <h4 *ngIf="orderList.length !== 0">Užsakymų sąrašas</h4>
+    <form  *ngIf="orderList.length !== 0">
+        <label>Paieška</label>
+        <input class="search" placeholder="   Įveskite užsakymo numerį" type="text" [(ngModel)]="orderNumber" [ngModelOptions]="{standalone: true}">
+    </form>
     <table class="table table-hover" *ngIf="orderList.length !== 0">
       <thead>
         <tr>
           <td>Data</td>
           <td>Užsakytos prekės</td>
-          <td></td>
+          <td>Užsakymo nr.</td>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let count of orderList">
+        <tr *ngFor="let count of orderList | searchOrder:orderNumber; let i = index">
           <td>{{ date | date:'yyyy-MM-dd HH:mm' }}</td>
           <td>
             <ul>
               <li *ngFor="let product of count">{{ product.name }} {{ product.price }} Eur</li>
             </ul>
           </td>
-          <td>{{ counter }} </td>
+          <td>{{ i }}</td>
         </tr>
       </tbody>
     </table>
