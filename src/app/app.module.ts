@@ -9,9 +9,8 @@ import { RouterModule } from '@angular/router';
 import { routing } from './app.routing';
 import { SearchPipe } from './search.pipe';
 import { FormsModule } from '@angular/forms';
-import {NgxPaginationModule} from 'ngx-pagination';
+import { NgxPaginationModule } from 'ngx-pagination';
 import { OrderList } from './services/orderList.service';
-import { OrderCount } from './services/orderCount.service';
 
 @NgModule({
   declarations: [
@@ -19,7 +18,7 @@ import { OrderCount } from './services/orderCount.service';
     AppComponent,
     ItemsComponent,
     ShopCartComponent,
-    RoutingComponent 
+    RoutingComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +26,7 @@ import { OrderCount } from './services/orderCount.service';
     FormsModule,
     NgxPaginationModule
   ],
-  providers: [ItemsService, OrderList, OrderCount],
+  providers: [ItemsService, OrderList],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

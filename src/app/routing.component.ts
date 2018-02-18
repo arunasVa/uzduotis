@@ -7,11 +7,11 @@ import { ItemsService } from './services/items.service';
   styleUrls: ['./routing.component.css']
 })
 
-export class RoutingComponent implements OnInit{
+export class RoutingComponent implements OnInit {
 
   shopCart = [];
 
-  constructor(private itemsService: ItemsService) {}
+  constructor(private itemsService: ItemsService) { }
 
   ngOnInit() {
 

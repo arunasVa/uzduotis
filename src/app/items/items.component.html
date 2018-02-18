@@ -1,28 +1,35 @@
-
-<div class="col-md-9">
-    <form id="searchBar">
+<div class="row">
+  <div class="col-md-12 itemsList">
+    <div class="row justify-content-center searchBars">
+      <form id="searchBar">
         <label>Search</label>
-        <input type="text" [(ngModel)]="productName" [ngModelOptions]="{standalone: true}">
-    </form>
+        <input class="search" placeholder="     Įveskite produkto pavadinimą" type="text" [(ngModel)]="productName" [ngModelOptions]="{standalone: true}">
+      </form>
+    </div>
     <table class="table table-hover">
-        <thead>
-            <tr>
-                <td>Prekės Nr.</td>
-                <td>Prekės pavadinimas</td>
-                <td>Svoris gramais</td>
-                <td>Kaina eur</td>
-                <td></td>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let item of itemsArr | search:productName | paginate: {itemsPerPage: 10 , currentPage: page}; let i = index"> 
-                <td>{{ item.id }}</td>
-                <td>{{ item.name }}</td>
-                <td>{{ item.weight }}</td>
-                <td>{{ item.price }}</td>
-                <td><button class="btn" (click)="addToShopCart(item)"> Pasirinkti </button></td>
-            </tr>
-        </tbody>
+      <thead>
+        <tr>
+          <td>Prekės Nr.</td>
+          <td>Prekės pavadinimas</td>
+          <td>Svoris gramais</td>
+          <td>Kaina eur</td>
+          <td></td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of itemsArr | search:productName | paginate: {itemsPerPage: 10 , currentPage: page}; let i = index">
+          <td>{{ item.id }}</td>
+          <td>{{ item.name }}</td>
+          <td>{{ item.weight }}</td>
+          <td>{{ item.price }}</td>
+          <td>
+            <button class="button productButton" (click)="addToShopCart(item)"> Pasirinkti </button>
+          </td>
+        </tr>
+      </tbody>
     </table>
-    <pagination-controls (pageChange)="page = $event" item.id="1" maxSize="5" directionLinks="true" autoHide="true"></pagination-controls>
+  </div>
+  <div class="pagination col-md-5">
+      <pagination-controls (pageChange)="page = $event" item.id="1" maxSize="5" directionLinks="true" autoHide="true"></pagination-controls>
+  </div>
 </div>

@@ -5,15 +5,14 @@ import { SearchPipe } from '../search.pipe'
 
 @Component({
   selector: 'nfq-items',
-  templateUrl: 'items.component.html',
-  styleUrls: ['./items.component.css']
+  templateUrl: 'items.component.html'
 })
 
 export class ItemsComponent implements OnInit {
-  
+
   public productName: String;
   public page: Number;
-  
+
   itemsArr: Item[] = []
 
   //pridejimas i krepseli
@@ -24,10 +23,10 @@ export class ItemsComponent implements OnInit {
   constructor(private itemsService: ItemsService) {
 
   }
-  
+
   ngOnInit() {
     this.itemsArr = this.itemsService.getItemsArr();
   }
-  
+
 }
 
