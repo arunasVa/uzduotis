@@ -51,3 +51,7 @@ min-height: 8%;
   z-index: -1;
   border-radius: 20px;
 }
+
+thead {
+  background-color: lavender;
+}
