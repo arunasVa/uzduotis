@@ -1,13 +1,13 @@
+import { Item } from "./items.model";
+
 export class Order {
   public id: number;
-  public name: string;
-  public weight: string;
-  public price: number;
+  public date : Date;
+  public products: Item[];
 
-  constructor(id: number, name: string, weight: string, price: number) {
+  constructor(id : number, date : Date, products : Item[]) {
     this.id = id;
-    this.name = name;
-    this.weight = weight;
-    this.price = price;
+    this.date = date;
+    this.products = products;
   }
 }

@@ -43,14 +43,14 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let count of orderList | searchOrder:orderNumber; let i = index">
-          <td>{{ date | date:'yyyy-MM-dd HH:mm' }}</td>
+        <tr *ngFor="let order of orderList | searchOrder:orderNumber">
+          <td>{{ order.date | date:'yyyy-MM-dd HH:mm' }}</td>
           <td>
             <ul>
-              <li *ngFor="let product of count">{{ product.name }} {{ product.price }} Eur</li>
+              <li *ngFor="let product of order.products">{{ product.name }} {{ product.price }} Eur</li>
             </ul>
           </td>
-          <td>{{ i }}</td>
+          <td>{{ order.id }}</td>
         </tr>
       </tbody>
     </table>

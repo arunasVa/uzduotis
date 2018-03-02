@@ -17,18 +17,21 @@ export class ShopCartComponent implements OnInit {
 
   //užsakymų sąrašas
   orderList = [];
-  date = undefined;
   removeFromShopCart(product: Item) {
     this.itemsService.removeFromShopCart(product);
   }
   //sudarome užsakymą ir išvalome krepšelį
   makeOrderList() {
-    var counter = 0;
     var orderContainer = [];
     for (var i = 0; i < this.pickedProducts.length; i++) {
       orderContainer.push(this.pickedProducts[i]);
+
+
     }
-    this.orderList.push(orderContainer);
+    this.orderList.push(new Order(
+      this.orderService.getNextId(),
+      new Date(),
+      orderContainer));
     this.pickedProducts.length = 0;
   }
 
@@ -37,7 +40,6 @@ export class ShopCartComponent implements OnInit {
   ngOnInit() {
     this.pickedProducts = this.itemsService.getShopCart();
     this.orderList = this.orderService.getOrderList();
-    this.date = this.orderService.getDate();
   }
 
 }

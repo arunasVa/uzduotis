@@ -2,13 +2,15 @@ import { Order } from "./orderList.model";
 
 export class OrderList {
 
-  private orderList = [];
+  private nextId : number = 0;
+  private orderList : Order[] = [];
   private date = new Date();
 
   getOrderList() {
     return this.orderList;
   }
-  getDate() {
-    return this.date;
+
+  getNextId() : number {
+    return this.nextId++;
   }
 }
